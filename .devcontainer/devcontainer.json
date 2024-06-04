@@ -1,0 +1,27 @@
+{
+  "name": "dating-app",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "runServices": ["db"],
+  "shutdownAction": "stopCompose",
+  "forwardPorts": [
+    3000,
+    3306
+  ],
+  "postCreateCommand": "go mod download",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "golang.go"
+      ]
+    },
+    "settings": {
+      "go.lintTool": "golangci-lint",
+      "go.lintOnSave": "package",
+      "go.lintFlags": [
+        "--fast"
+      ]
+    }
+  },
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}"
+}
