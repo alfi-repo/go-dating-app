@@ -24,7 +24,7 @@ func (h *Handler) Registration(c echo.Context) error {
 		return c.JSON(http.StatusBadRequest, dto.ErrorResponse{
 			Success: false,
 			Message: "please check your input",
-			Errors:  FormatValidationErrors(err),
+			Errors:  h.FormatValidationErrors(err),
 		})
 	}
 
@@ -76,7 +76,7 @@ func (h *Handler) Login(c echo.Context) error {
 		return c.JSON(http.StatusBadRequest, dto.ErrorResponse{
 			Success: false,
 			Message: "please check your input",
-			Errors:  FormatValidationErrors(err),
+			Errors:  h.FormatValidationErrors(err),
 		})
 	}
 
